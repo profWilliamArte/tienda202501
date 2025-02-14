@@ -6,7 +6,7 @@ import Inicio from "./pages/Inicio"
 import Productos from "./pages/productos"
 import Detalle from "./pages/Detalle"
 import Busqueda from "./pages/Busqueda"
-import Encuesta from "./pages/Encuesta"
+import Tienda from "./pages/Tienda"
 
 
 
@@ -22,7 +22,8 @@ const App = () => {
         <Route path="/productos/:categoria" element={<Productos/>} /> 
         <Route path="/detalle/:id" element={<Detalle/>} /> 
         <Route path="/busquedas" element={<Busqueda/>} />
-        <Route path="/encuesta" element={<Encuesta/>} />
+
+        <Route path="/tienda" element={<Tienda/>} />
 
         <Route path="*" element={<Inicio/>} /> 
       </Routes>

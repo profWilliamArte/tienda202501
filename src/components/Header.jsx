@@ -239,6 +239,7 @@ const Header = () => {
                 <li className="nav-item">
                   <a className="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-3" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Shop</a>
                   <ul className="sub-menu collapse" id="submenu-1-3">
+                    <li className="nav-item"><Link to={'/tienda'} href="#">Tienda</Link></li>
                     <li className="nav-item"><Link to={'/productos/laptops'} href="#">Laptops</Link></li>
                     <li className="nav-item"><Link to={'/productos/Smartphones'} href="#">Smartphones</Link></li>
                     <li className="nav-item"><Link to={'/productos/kitchen-accessories'} href="#">Kitchen-accessories</Link></li>

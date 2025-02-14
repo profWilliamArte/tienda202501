@@ -1,0 +1,7 @@
+1) Descargar la plantilla de https://graygrids.com/templates/shopgrids-bootstrap-ecommerce
+2) convertir la plantilla a react
+3) mostrar productos de dummyjson en inicio productos destacados  (fetch, useEffect - useState)
+4) crear el componente Cardproduct.jsx y pasar el item como props (props)
+5) en el menu Shop llamar a productos y pasar como parametro la categoria (useParams)
+6) crear la pagina busqueda utilizando el header Search para indicar el valor a buscar (useNavigate, useLocation)
+7) crear la pagina tienda y agregar un paginador (limit, skip)
