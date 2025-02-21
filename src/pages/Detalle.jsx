@@ -3,10 +3,13 @@ import { Link, useParams } from "react-router-dom";
 import { formatCurrency } from "../utils/utils";
 import Similares from "../components/Similares";
 const API='https://dummyjson.com/products/';
-
+import { useContext } from "react";
+import { carritoContext } from "../contexts/carritoContext";
 const Detalle = () => {
+     const { agregar } = useContext(carritoContext);
      const params = useParams();
         const [datos, setDatos] = useState([])
+        const [cantidad, setCantidad] = useState(1)
         const URI=API+params.id
         const [currentImage, setCurrentImage] = useState(""); // Estado para la imagen actual
         const [categoria, setCategoria] = useState([])
@@ -132,21 +135,21 @@ const Detalle = () => {
                         <div className="form-group">
                             <label htmlFor="color">Battery capacity</label>
                             <select className="form-control" id="color">
-                            <option>5100 mAh</option>
-                            <option>6200 mAh</option>
-                            <option>8000 mAh</option>
+                                <option>5100 mAh</option>
+                                <option>6200 mAh</option>
+                                <option>8000 mAh</option>
                             </select>
                         </div>
                         </div>
                         <div className="col-lg-4 col-md-4 col-12">
                         <div className="form-group quantity">
                             <label htmlFor="color">Quantity</label>
-                            <select className="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <select className="form-control" value={cantidad}  onChange={(e) => setCantidad(Number(e.target.value))}>
+                            {Array.from({ length: datos.stock }, (_, i) => (
+                                <option key={i + 1} value={i + 1}>
+                                {i + 1}
+                                </option>
+                            ))}
                             </select>
                         </div>
                         </div>
@@ -155,7 +158,7 @@ const Detalle = () => {
                         <div className="row align-items-end">
                         <div className="col-lg-4 col-md-4 col-12">
                             <div className="button cart-button">
-                            <button className="btn" style={{width: '100%'}}>Add to Cart</button>
+                                <button className="btn" style={{width: '100%'}} onClick={()=>agregar(datos, cantidad)}>Add to Cart</button>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-4 col-12">

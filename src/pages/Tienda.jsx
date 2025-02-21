@@ -40,7 +40,10 @@ const Tienda = () => {
                 <div className="d-flex justify-content-center">
                 
                     <ul className="d-flex pagination">
-                      <li className={`page-item  ${skip === 0 ? 'disabled' : ''}`}>
+                    <li className={`page-item  ${skip <= 0 ? 'disabled' : ''}`}>
+                        <a className="page-link" href="#" onClick={() => setSkip(0)}>Primero</a>
+                      </li>
+                      <li className={`page-item  ${skip <= 0 ? 'disabled' : ''}`}>
                         <a className="page-link" href="#" onClick={() => setSkip(skip - limit)}>Anterior</a>
                       </li>
                     
@@ -49,7 +52,10 @@ const Tienda = () => {
                       </li>
                      
                       <li className={`page-item ${skip + limit >= total ? 'disabled' : ''}`}>
-                        <a className="page-link" href="#" onClick={() => setSkip(skip + limit)}>Siguiemte</a>
+                        <a className="page-link" href="#" onClick={() => setSkip(skip + limit)}>Siguiente</a>
+                      </li>
+                      <li className={`page-item ${skip + limit >= total ? 'disabled' : ''}`}>
+                        <a className="page-link" href="#" onClick={() => setSkip(total - (total % limit ))}>Ultimo</a>
                       </li>
                     </ul>
                 

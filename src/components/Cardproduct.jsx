@@ -2,15 +2,21 @@ import { Link } from "react-router-dom"
 import { formatCurrency } from "../utils/utils"
 import PropTypes from "prop-types";
 
+
+
 const Cardproduct = ({item}) => {
+   
+
+
     Cardproduct.propTypes = {
         item: PropTypes.shape({
-          id: PropTypes.number.isRequired, // ID del producto
-          thumbnail: PropTypes.string.isRequired, // URL de la imagen
-          title: PropTypes.string.isRequired, // Título del producto
-          category: PropTypes.string.isRequired, // Categoría del producto
-          rating: PropTypes.number.isRequired, // Calificación del producto
-          price: PropTypes.number.isRequired, // Precio del producto
+          id: PropTypes.number.isRequired, 
+          thumbnail: PropTypes.string.isRequired, 
+          title: PropTypes.string.isRequired,
+          category: PropTypes.string.isRequired,
+          brand: PropTypes.string.isRequired, 
+          rating: PropTypes.number.isRequired, 
+          price: PropTypes.number.isRequired, 
         }).isRequired,
       };
   return (
@@ -26,14 +32,16 @@ const Cardproduct = ({item}) => {
             
             <div className="product-info">
                 <span className="category">{item.category}</span>
+               
                 <h4 className="title">
                     <a href="product-grids.html">{item.title}</a>
                 </h4>
+                <span className="category">{item.brand}</span>
                 <ul className="review">
                 {[...Array(Math.floor(item.rating))].map((_, index) => (
                     <li key={`full-${index}`}><i className="lni lni-star-filled" /></li>
                 ))}
-                {[...Array(5 - Math.ceil(item.rating))].map((_, index) => (
+                {[...Array(6 - Math.ceil(item.rating))].map((_, index) => (
                     <li key={`empty-${index}`}><i className="lni lni-star" /></li>
                 ))}
                 <li><span>{Math.floor(item.rating)}</span></li>

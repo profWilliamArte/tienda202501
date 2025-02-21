@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import Menu from "./Menu"
 import logo from '../assets/logo/logo.svg'
 import Buscador from "./Buscador";
+import MostrarCarrito from "./MostrarCarrito";
 
 const Header = () => {
 
@@ -21,7 +22,6 @@ const Header = () => {
   };
   return (
 <header className="header navbar-area">
-  {/* Start Topbar */}
   <div className="topbar">
     <div className="container">
       <div className="row align-items-center">
@@ -84,21 +84,16 @@ const Header = () => {
       </div>
     </div>
   </div>
-
   <div className="header-middle">
     <div className="container">
       <div className="row align-items-center">
         <div className="col-lg-3 col-md-3 col-7">
- 
           <a className="navbar-brand" href="index.html">
             <img src={logo} alt="Logo" />
           </a>
-   
         </div>
         <div className="col-lg-5 col-md-7 d-xs-none">
-          {/* Start Main Menu Search */}
           <div className="main-menu-search">
-            {/* navbar search start */}
             <div className="navbar-search search-style-5">
               <div className="search-select">
                 <div className="select-position">
@@ -110,26 +105,19 @@ const Header = () => {
                     <option value="4">womens-shoes</option>
                     <option value="5">womens-watches</option>
                   </select>
-              
-
-
                 </div>
               </div>
-
-
               <Buscador/>
- {/*
-              <div className="search-input">
-                <input type="text" placeholder="Search" />
-              </div>
-              <div className="search-btn">
-                <button><i className="lni lni-search-alt" /></button>
-              </div>
-*/}
+              {/*
+                  <div className="search-input">
+                    <input type="text" placeholder="Search" />
+                  </div>
+                  <div className="search-btn">
+                    <button><i className="lni lni-search-alt" /></button>
+                  </div>
+            */}
             </div>
-            {/* navbar search Ends */}
           </div>
-          {/* End Main Menu Search */}
         </div>
         <div className="col-lg-4 col-md-2 col-5">
           <div className="middle-right-area">
@@ -146,74 +134,31 @@ const Header = () => {
                   <span className="total-items">0</span>
                 </a>
               </div>
-              <div className="cart-items">
-                <a href="javascript:void(0)" className="main-btn">
-                  <i className="lni lni-cart" />
-                  <span className="total-items">2</span>
-                </a>
-                {/* Shopping Item */}
-                <div className="shopping-item">
-                  <div className="dropdown-cart-header">
-                    <span>2 Items</span>
-                    <a href="cart.html">View Cart</a>
-                  </div>
-                  <ul className="shopping-list">
-                    <li>
-                      <a href="javascript:void(0)" className="remove" title="Remove this item"><i className="lni lni-close" /></a>
-                      <div className="cart-img-head">
-                        <a className="cart-img" href="product-details.html"><img src="assets/images/header/cart-items/item1.jpg" alt="#" /></a>
-                      </div>
-                      <div className="content">
-                        <h4><a href="product-details.html">
-                            Apple Watch Series 6</a></h4>
-                        <p className="quantity">1x - <span className="amount">$99.00</span></p>
-                      </div>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0)" className="remove" title="Remove this item"><i className="lni lni-close" /></a>
-                      <div className="cart-img-head">
-                        <a className="cart-img" href="product-details.html"><img src="assets/images/header/cart-items/item2.jpg" alt="#" /></a>
-                      </div>
-                      <div className="content">
-                        <h4><a href="product-details.html">Wi-Fi Smart Camera</a></h4>
-                        <p className="quantity">1x - <span className="amount">$35.00</span></p>
-                      </div>
-                    </li>
-                  </ul>
-                  <div className="bottom">
-                    <div className="total">
-                      <span>Total</span>
-                      <span className="total-amount">$134.00</span>
-                    </div>
-                    <div className="button">
-                      <a href="checkout.html" className="btn animate">Checkout</a>
-                    </div>
-                  </div>
-                </div>
-                {/*/ End Shopping Item */}
-              </div>
+
+                <MostrarCarrito/>
+
+
+
+
+
+
+
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  {/* End Header Middle */}
-  {/* Start Header Bottom */}
   <div className="container">
     <div className="row align-items-center">
       <div className="col-lg-8 col-md-6 col-12">
         <div className="nav-inner">
-          {/* Start Mega Category Menu */}
           <div className="mega-category-menu">
             <span className="cat-button"><i className="lni lni-menu" />All Categories</span>
             <ul className="sub-category">
-             
               <Menu/>
             </ul>
           </div>
-          {/* End Mega Category Menu */}
-          {/* Start Navbar */}
           <nav className="navbar navbar-expand-lg">
             <button className="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="toggler-icon" />
@@ -228,7 +173,7 @@ const Header = () => {
                 <li className="nav-item">
                   <a className="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Pages</a>
                   <ul className="sub-menu collapse" id="submenu-1-2">
-                    <li className="nav-item"><a href="about-us.html">About Us</a></li>
+                    <li className="nav-item"><Link to={'/vercompras'} href="#">Ver lista de Compras</Link></li>
                     <li className="nav-item"><a href="faq.html">Faq</a></li>
                     <li className="nav-item"><a href="login.html">Login</a></li>
                     <li className="nav-item"><a href="register.html">Register</a></li>
@@ -263,11 +208,9 @@ const Header = () => {
               </ul>
             </div> {/* navbar collapse */}
           </nav>
-          {/* End Navbar */}
         </div>
       </div>
       <div className="col-lg-4 col-md-6 col-12">
-        {/* Start Nav Social */}
         <div className="nav-social">
           <h5 className="title">Follow Us:</h5>
           <ul>
@@ -285,11 +228,9 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        {/* End Nav Social */}
       </div>
     </div>
   </div>
-  {/* End Header Bottom */}
 </header>
 
   )

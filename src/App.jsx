@@ -9,10 +9,12 @@ import Busqueda from "./pages/Busqueda"
 import Tienda from "./pages/Tienda"
 
 
-
+import Carrito from './contexts/Carrito'
+import VerCompra from "./pages/VerCompra"
 
 const App = () => {
   return (
+    <Carrito>
     <BrowserRouter>
   
       <Header/>
@@ -22,6 +24,7 @@ const App = () => {
         <Route path="/productos/:categoria" element={<Productos/>} /> 
         <Route path="/detalle/:id" element={<Detalle/>} /> 
         <Route path="/busquedas" element={<Busqueda/>} />
+        <Route path="/vercompras" element={<VerCompra/>} />
 
         <Route path="/tienda" element={<Tienda/>} />
 
@@ -29,6 +32,7 @@ const App = () => {
       </Routes>
       <Footer/>
     </BrowserRouter>
+    </Carrito>
   )
 }
 
